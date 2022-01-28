@@ -1,0 +1,112 @@
+[
+    {
+        "id": "8d9a6f664594a52f",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f982053579a8ecba",
+        "type": "inject",
+        "z": "8d9a6f664594a52f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Topic de Ejemplo",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 140,
+        "wires": [
+            [
+                "db285096feecddf5"
+            ]
+        ]
+    },
+    {
+        "id": "cd393f2496ab519e",
+        "type": "debug",
+        "z": "8d9a6f664594a52f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "db285096feecddf5",
+        "type": "function",
+        "z": "8d9a6f664594a52f",
+        "name": "",
+        "func": "var date = new Date(msg.payload);\nmsg.payload = date.toString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "cd393f2496ab519e",
+                "58ddcd8f8dee3dd3"
+            ]
+        ]
+    },
+    {
+        "id": "58ddcd8f8dee3dd3",
+        "type": "ui_text",
+        "z": "8d9a6f664594a52f",
+        "group": "e9aad40289702847",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Muestra la hora",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 960,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "e9aad40289702847",
+        "type": "ui_group",
+        "name": "Bloque de hora",
+        "tab": "b8b222ee13413eb0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b8b222ee13413eb0",
+        "type": "ui_tab",
+        "name": "Hora Formateada",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
